@@ -1144,19 +1144,20 @@ extern enum reg_class microblaze_char_to_class[];
    operand as its first argument and the constraint letter as its
    second operand.
 
+   `Q'  is for memory an operand which fits in a single register.
    `R'	is for memory references which take 1 word for the instruction.
    `T'	is for memory addresses that can be used to load two words.  */
 
 #define EXTRA_CONSTRAINT(OP,CODE)					\
   (((CODE) == 'T')	  ? double_memory_operand (OP, GET_MODE (OP))	\
-   : ((CODE) == 'Q')	  ? FALSE                                       \
+   : ((CODE) == 'Q')	  ? (GET_CODE(XEXP(OP, 0)) == REG) \
    : (GET_CODE (OP) != MEM) ? FALSE					\
    : ((CODE) == 'R')	  ? simple_memory_operand (OP, GET_MODE (OP))	\
    : ((CODE) == 's')      ? ST_REG_P(INTVAL(OP))   			\
    : FALSE)
 
 /* Say which of the above are memory constraints.  */
-#define EXTRA_MEMORY_CONSTRAINT(C, STR) ((C) == 'R' || (C) == 'T')
+#define EXTRA_MEMORY_CONSTRAINT(C, STR) ((C) == 'Q' || (C) == 'R' || (C) == 'T')
 
 /* Given an rtx X being reloaded into a reg required to be
    in class CLASS, return the class of reg to actually use.

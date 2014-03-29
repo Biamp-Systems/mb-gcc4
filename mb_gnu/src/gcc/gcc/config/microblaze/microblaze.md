@@ -50,6 +50,8 @@
   (UNSPEC_SET_GOT       101)    ;;
   (UNSPEC_GOTOFF        102)    ;; GOT offset
   (UNSPEC_PLT           103)    ;; jump table
+  (UNSPEC_SYNC_CAS      107)    ;; Represent an atomic compare swap.
+  (UNSPEC_SYNC_XCHG     108)    ;; Represent an atomic exchange.
 ])
 
 
@@ -3036,3 +3038,4 @@
   [(set_attr "type" "multi")
    (set_attr "length" "12")])
 
+(include "sync.md")
