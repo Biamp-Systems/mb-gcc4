@@ -308,6 +308,7 @@ Return the BFD error handler function.
 
 @section Symbols
 
+@subsection Functions
 
 @findex bfd_get_reloc_upper_bound
 @subsubsection @code{bfd_get_reloc_upper_bound}

@@ -486,7 +486,7 @@ assembler.
 
 
 @node howto manager,  , typedef arelent, Relocations
-@section The howto manager
+@subsection The howto manager
 When an application wants to create a relocation, but doesn't
 know what the target machine might call it, it can find out by
 using this bit of code.

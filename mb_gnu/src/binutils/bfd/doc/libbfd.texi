@@ -1,6 +1,9 @@
 @section Internal functions
 
 
+@subsection Internal functions
+
+
 @strong{Description}@*
 These routines are used within BFD.
 They are not intended for export, but are documented here for
